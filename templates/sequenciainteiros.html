@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequência de Inteiros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Sequência de Inteiros</h1>
+
+    <form method="POST" class="form-container">
+        <label for="n">Informe um número inteiro positivo (N):</label>
+        <input type="number" id="n" name="n" min="1" required>
+
+        <button type="submit" class="button">Gerar Sequência</button>
+    </form>
+
+    {% if resultados %}
+    <div class="result-container">
+        <h2>Resultado:</h2>
+        <ul>
+            {% for numero, mensagens in resultados %}
+            <li><strong>{{ numero }}:</strong> {{ mensagens }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <a href="/" class="button">Voltar para a Página Inicial</a>
+</body>
+</html>

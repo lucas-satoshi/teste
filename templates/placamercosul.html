@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placa Mercosul</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Validação e Conversão de Placas</h1>
+
+    <form method="POST" class="form-container">
+        <label for="placa">Informe a placa:</label>
+        <input type="text" id="placa" name="placa" placeholder="Exemplo: ABC1234 ou ABC1C34" required>
+
+        <button type="submit" class="button">Verificar</button>
+    </form>
+
+    {% if padrao %}
+    <div class="result-container">
+        <h2>Resultado:</h2>
+        {% if padrao == "Formato inválido" %}
+        <p>A placa informada está em um {{ padrao }}.</p>
+        {% else %}
+        <p><strong>Padrão:</strong> {{ padrao }}</p>
+        <p><strong>Correspondente:</strong> {{ correspondente }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <a href="/" class="button">Voltar para a Página Inicial</a>
+</body>
+</html>

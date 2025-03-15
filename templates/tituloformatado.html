@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título Formatado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Título Formatado</h1>
+
+    <form method="POST" class="form-container">
+        <label for="parte_superior">Parte Superior:</label>
+        <input type="text" id="parte_superior" name="parte_superior" required>
+
+        <label for="parte_inferior">Parte Inferior:</label>
+        <input type="text" id="parte_inferior" name="parte_inferior" required>
+
+        <button type="submit" class="button">Formatar Título</button>
+    </form>
+
+    {% if titulo_formatado %}
+    <div class="result-container">
+        <h2>Resultado:</h2>
+        <pre>{{ titulo_formatado }}</pre>
+    </div>
+    {% endif %}
+
+    <a href="/" class="button">Voltar para a Página Inicial</a>
+</body>
+</html>

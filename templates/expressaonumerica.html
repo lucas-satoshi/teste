@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expressão Numérica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Resolução da Expressão Numérica</h1>
+
+    <form method="POST" class="form-container">
+        <label for="a">Valor de A:</label>
+        <input type="number" id="a" name="a" required>
+
+        <label for="b">Valor de B:</label>
+        <input type="number" id="b" name="b" required>
+
+        <label for="c">Valor de C:</label>
+        <input type="number" id="c" name="c" required>
+
+        <button type="submit" class="button">Calcular</button>
+    </form>
+
+    {% if mensagem %}
+    <div class="result-container">
+        <h2>Resultado:</h2>
+        <p>{{ mensagem }}</p>
+    </div>
+    {% endif %}
+
+    <a href="/" class="button">Voltar para a Página Inicial</a>
+</body>
+</html>

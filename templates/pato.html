@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pato Virtual</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Bem-vindo ao Pato Virtual!</h1>
+
+    <form method="POST" class="form-container">
+        <button type="submit" name="acao" value="grasnar" class="button">Grasnar</button>
+        <button type="submit" name="acao" value="nadar" class="button">Nadar</button>
+        <button type="submit" name="acao" value="voar" class="button">Voar</button>
+    </form>
+
+    {% if mensagem %}
+    <div class="result-container">
+        <h2>O que o pato fez:</h2>
+        <p>{{ mensagem }}</p>
+    </div>
+    {% endif %}
+
+    <a href="/" class="button">Voltar para a Página Inicial</a>
+</body>
+</html>
