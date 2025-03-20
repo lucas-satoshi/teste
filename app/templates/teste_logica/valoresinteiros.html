@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expressão Numérica</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Verificação de Valores Inteiros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='teste_logica.css') }}">
 </head>
 <body>
-    <h1>Resolução da Expressão Numérica</h1>
+    <h1>Verificação de Valores Inteiros</h1>
 
     <form method="POST" class="form-container">
         <label for="a">Valor de A:</label>
@@ -19,7 +19,10 @@
         <label for="c">Valor de C:</label>
         <input type="number" id="c" name="c" required>
 
-        <button type="submit" class="button">Calcular</button>
+        <label for="d">Valor de D:</label>
+        <input type="number" id="d" name="d" required>
+
+        <button type="submit" class="button">Verificar</button>
     </form>
 
     {% if mensagem %}
@@ -29,6 +32,6 @@
     </div>
     {% endif %}
 
-    <a href="/" class="button">Voltar para a Página Inicial</a>
+    <a href="/teste_logica/index" class="button">Voltar para a Página Inicial</a>
 </body>
 </html>

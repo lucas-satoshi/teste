@@ -1,12 +1,12 @@
-from flask import Flask, render_template, request
+from flask import Blueprint, render_template, request
 
-app = Flask(__name__)
+teste_logica_bp = Blueprint('teste_logica', __name__, url_prefix='/teste_logica')
 
-@app.route('/')
-def home():
-    return render_template('index.html')
+@teste_logica_bp.route('/index')
+def teste_logica_index():
+    return render_template('teste_logica/teste_logica.html')
 
-@app.route('/calculosalario', methods=['GET', 'POST'])
+@teste_logica_bp.route('/calculosalario', methods=['GET', 'POST'])
 def calculosalario():
     if request.method == 'POST':
         horas_por_dia = float(request.form['horas_por_dia'])
@@ -19,11 +19,11 @@ def calculosalario():
 
         salario_liquido = salario_bruto - desconto
 
-        return render_template('calculosalario.html', salario_bruto=salario_bruto, desconto=desconto, salario_liquido=salario_liquido)
+        return render_template('teste_logica/calculosalario.html', salario_bruto=salario_bruto, desconto=desconto, salario_liquido=salario_liquido)
     else:
-        return render_template('calculosalario.html')
+        return render_template('teste_logica/calculosalario.html')
     
-@app.route('/valoresinteiros', methods=['GET', 'POST'])
+@teste_logica_bp.route('/valoresinteiros', methods=['GET', 'POST'])
 def valoresinteiros():
     if request.method == 'POST':
         a = int(request.form['a'])
@@ -36,11 +36,11 @@ def valoresinteiros():
         else:
             mensagem = "Valores não aceitos"
 
-        return render_template('valoresinteiros.html', mensagem=mensagem)
+        return render_template('teste_logica/valoresinteiros.html', mensagem=mensagem)
     else:
-        return render_template('valoresinteiros.html')
+        return render_template('teste_logica/valoresinteiros.html')
     
-@app.route('/descontoprodutos', methods=['GET', 'POST'])
+@teste_logica_bp.route('/descontoprodutos', methods=['GET', 'POST'])
 def descontoprodutos():
     if request.method == 'POST':
         descricao = request.form['descricao']
@@ -60,14 +60,14 @@ def descontoprodutos():
 
         total_a_pagar = total_sem_desconto - desconto_valor
 
-        return render_template('descontoprodutos.html', descricao=descricao, quantidade=quantidade,
+        return render_template('teste_logica/descontoprodutos.html', descricao=descricao, quantidade=quantidade,
                                preco_unitario=preco_unitario, total_sem_desconto=total_sem_desconto,
                                desconto_percentual=desconto_percentual, desconto_valor=desconto_valor,
                                total_a_pagar=total_a_pagar)
     else:
-        return render_template('descontoprodutos.html')
+        return render_template('teste_logica/descontoprodutos.html')
     
-@app.route('/expressaonumerica', methods=['GET', 'POST'])
+@teste_logica_bp.route('/expressaonumerica', methods=['GET', 'POST'])
 def expressaonumerica():
     if request.method == 'POST':
         a = int(request.form['a'])
@@ -80,11 +80,11 @@ def expressaonumerica():
             x = (1 - c) / (a + b)
             mensagem = f"O valor de X é: {x:.2f}"
 
-        return render_template('expressaonumerica.html', mensagem=mensagem)
+        return render_template('teste_logica/expressaonumerica.html', mensagem=mensagem)
     else:
-        return render_template('expressaonumerica.html')
+        return render_template('teste_logica/expressaonumerica.html')
     
-@app.route('/placamercosul', methods=['GET', 'POST'])
+@teste_logica_bp.route('/placamercosul', methods=['GET', 'POST'])
 def placamercosul():
     if request.method == 'POST':
         placa = request.form['placa'].upper()
@@ -99,11 +99,11 @@ def placamercosul():
             padrao = "Formato inválido"
             correspondente = ""
 
-        return render_template('placamercosul.html', padrao=padrao, correspondente=correspondente)
+        return render_template('teste_logica/placamercosul.html', padrao=padrao, correspondente=correspondente)
     else:
-        return render_template('placamercosul.html')
+        return render_template('teste_logica/placamercosul.html')
 
-@app.route('/sequenciainteiros', methods=['GET', 'POST'])
+@teste_logica_bp.route('/sequenciainteiros', methods=['GET', 'POST'])
 def sequenciainteiros():
     if request.method == 'POST':
         n = int(request.form['n'])
@@ -138,11 +138,11 @@ def sequenciainteiros():
 
             resultados.append((numero, ", ".join(mensagens)))
 
-        return render_template('sequenciainteiros.html', resultados=resultados)
+        return render_template('teste_logica/sequenciainteiros.html', resultados=resultados)
     else:
-        return render_template('sequenciainteiros.html')
+        return render_template('teste_logica/sequenciainteiros.html')
 
-@app.route('/tituloformatado', methods=['GET', 'POST'])
+@teste_logica_bp.route('/tituloformatado', methods=['GET', 'POST'])
 def tituloformatado():
     if request.method == 'POST':
         parte_superior = request.form['parte_superior']
@@ -159,11 +159,11 @@ def tituloformatado():
 
         titulo_formatado = gerar_titulo_formatado(parte_superior, parte_inferior)
 
-        return render_template('tituloformatado.html', titulo_formatado=titulo_formatado)
+        return render_template('teste_logica/tituloformatado.html', titulo_formatado=titulo_formatado)
     else:
-        return render_template('tituloformatado.html')
+        return render_template('teste_logica/tituloformatado.html')
 
-@app.route('/matrizquadrada', methods=['GET', 'POST'])
+@teste_logica_bp.route('/matrizquadrada', methods=['GET', 'POST'])
 def matrizquadrada():
     if request.method == 'POST':
         n = int(request.form['n'])
@@ -198,9 +198,9 @@ def matrizquadrada():
 
         matriz = gerar_matriz_caracol(n)
 
-        return render_template('matrizquadrada.html', matriz=matriz)
+        return render_template('teste_logica/matrizquadrada.html', matriz=matriz)
     else:
-        return render_template('matrizquadrada.html')
+        return render_template('teste_logica/matrizquadrada.html')
 
 class Pato:
     def __init__(self, nome):
@@ -215,7 +215,7 @@ class Pato:
     def voar(self):
         return f"{self.nome} está voando alto no céu! ✈️"
 
-@app.route('/pato', methods=['GET', 'POST'])
+@teste_logica_bp.route('/pato', methods=['GET', 'POST'])
 def pato():
     meu_pato = Pato("Patolino")
     mensagem = None
@@ -230,7 +230,4 @@ def pato():
         elif acao == 'voar':
             mensagem = meu_pato.voar()
 
-    return render_template('pato.html', mensagem=mensagem)
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    return render_template('teste_logica/pato.html', mensagem=mensagem)
