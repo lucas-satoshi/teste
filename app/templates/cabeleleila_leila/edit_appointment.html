@@ -1,0 +1,34 @@
+{% extends 'cabeleleila_leila/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Editar Agendamento
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Nova Data</label>
+                            <input 
+                            type="date" 
+                            name="date" 
+                            min="{{ min_date }}" 
+                            value="{{ appointment.date.strftime('%Y-%m-%d') }}" 
+                            required
+                        >
+                        </div>
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Novo Horário</label>
+                            <input type="time" name="time" value="{{ appointment.time.strftime('%H:%M') }}" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

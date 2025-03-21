@@ -20,15 +20,18 @@ CREATE TABLE appointment (
     user_id INT NOT NULL,
     date DATE NOT NULL,
     time TIME NOT NULL,
-    status ENUM('aguardando', 'confirmado', 'cancelado') NOT NULL DEFAULT 'aguardando',
+    services VARCHAR(255) NOT NULL,
+    status ENUM('aguardando', 'confirmado', 'cancelado', 'finalizado') NOT NULL DEFAULT 'aguardando',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
-CREATE TABLE appointment_services (
-    appointment_id INT NOT NULL,
-    service_id INT NOT NULL,
-    PRIMARY KEY (appointment_id, service_id),
-    FOREIGN KEY (appointment_id) REFERENCES appointment(id) ON DELETE CASCADE,
-    FOREIGN KEY (service_id) REFERENCES service(id) ON DELETE CASCADE
-);
+INSERT INTO service (name, duration) VALUES
+('Corte de Cabelo', 60),
+('Progressiva', 120),
+('Manicure', 30),
+('Pedicure', 45),
+('Coloração', 90),
+('Hidratação', 60),
+('Selagem', 90),
+('Escova', 60);

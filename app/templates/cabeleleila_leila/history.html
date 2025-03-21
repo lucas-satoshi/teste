@@ -1,0 +1,76 @@
+{% extends 'cabeleleila_leila/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Histórico de Agendamentos</h2>
+    
+    <form method="GET" class="mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="date" name="start_date" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <input type="date" name="end_date" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+            </div>
+        </div>
+    </form>
+
+    {% if appointments %}
+    <div class="row">
+        {% for appointment in appointments %}
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ appointment.date.strftime('%d/%m/%Y') }}</h5>
+                    <p class="card-text">
+                        <strong>Horário:</strong> {{ appointment.time.strftime('%H:%M') }}<br>
+                        <strong>Status:</strong> {{ appointment.status }}<br>
+                        <strong>Serviços:</strong> 
+                        {% for service_name in appointment.services.split(', ') %}
+                        <li>{{ service_name }}</li>
+                        {% endfor %}
+                    </p>
+
+                    <div class="d-flex justify-content-between">
+                        {% if appointment.status in ['aguardando', 'confirmado'] %}
+                            {% if (appointment.date - current_date).days >= 2 %}
+                                <a href="{{ url_for('cabeleleila_leila.edit_appointment', id=appointment.id) }}" 
+                                   class="btn btn-primary">
+                                    Editar
+                                </a>
+                            {% else %}
+                                <button class="btn btn-secondary disabled">
+                                    Editar (Só via telefone)
+                                </button>
+                                <p class="text-muted mt-2">Contato: (11) 98765-4321</p>
+                            {% endif %}
+                        {% endif %}
+                        
+                        {% if appointment.status != 'cancelado' %}
+                            {% if (appointment.date - current_date).days >= 2 %}
+                                <form method="POST" 
+                                      action="{{ url_for('cabeleleila_leila.cancel_appointment', id=appointment.id) }}">
+                                    <button type="submit" class="btn btn-danger">
+                                        Cancelar
+                                    </button>
+                                </form>
+                            {% else %}
+                                <button class="btn btn-danger disabled">
+                                    Cancelar (Só via telefone)
+                                </button>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>Nenhum agendamento encontrado.</p>
+    {% endif %}
+</div>
+{% endblock %}
