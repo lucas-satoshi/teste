@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, flash, request,
 from flask_login import login_user, logout_user, login_required, current_user
 from app.models import User, Service, Appointment
 from app import db
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, time
 
 cabeleleila_leila_bp = Blueprint('cabeleleila_leila', __name__, url_prefix='/cabeleleila_leila')
 
@@ -114,12 +114,51 @@ def edit_profile():
 @cabeleleila_leila_bp.route('/schedule', methods=['GET', 'POST'])
 @login_required
 def schedule():
+    current_date = datetime.now().date().strftime('%Y-%m-%d')
+    
     if request.method == 'POST':
         selected_services = request.form.getlist('services')
-        selected_date = request.form['date']
-        selected_time = request.form['time']
+        selected_date_str = request.form['date']
+        selected_time_str = request.form['time']
         
-        services_str = ', '.join(selected_services)
+        selected_date = datetime.strptime(selected_date_str, '%Y-%m-%d').date()
+        selected_time = datetime.strptime(selected_time_str, '%H:%M').time()
+        selected_time_obj = datetime.combine(selected_date, selected_time)
+        now = datetime.now()
+        
+        if selected_time_obj < now.replace(tzinfo=None):
+            flash('Horário deve ser no futuro.', 'danger')
+            return redirect(url_for('cabeleleila_leila.schedule'))
+        
+        if selected_date < datetime.now().date():
+            flash('Data deve ser no futuro.', 'danger')
+            return redirect(url_for('cabeleleila_leila.schedule'))
+        
+        if selected_time < time(8, 0) or selected_time >= time(20, 0):
+            flash('Horário deve estar entre 08:00 e 20:00.', 'danger')
+            return redirect(url_for('cabeleleila_leila.schedule'))
+        
+        services = Service.query.filter(Service.name.in_(selected_services)).all()
+        total_duration = sum(service.duration for service in services)
+        
+        new_start = datetime.combine(selected_date, selected_time)
+        new_end = new_start + timedelta(minutes=total_duration)
+        
+        if new_end.time() > time(20, 0):
+            flash('Serviço ultrapassa o horário máximo de 20:00.', 'danger')
+            return redirect(url_for('cabeleleila_leila.schedule'))
+        
+        existing_appointments = Appointment.query.filter_by(date=selected_date).all()
+        for appt in existing_appointments:
+            existing_services = appt.services.split(', ')
+            existing_services_objects = Service.query.filter(Service.name.in_(existing_services)).all()
+            existing_duration = sum(s.duration for s in existing_services_objects)
+            existing_start = datetime.combine(appt.date, appt.time)
+            existing_end = existing_start + timedelta(minutes=existing_duration)
+            
+            if (new_start < existing_end) and (existing_start < new_end):
+                flash('Horário já está ocupado. Selecione outro horário.', 'danger')
+                return redirect(url_for('cabeleleila_leila.schedule'))
         
         start_week = Appointment.query.filter_by(user_id=current_user.id).filter(
             Appointment.date >= datetime.now().date() - timedelta(days=datetime.now().weekday()),
@@ -130,14 +169,14 @@ def schedule():
             suggested_date = start_week.date
             flash(f"Sugestão: Agendar na mesma data: {suggested_date.strftime('%d/%m/%Y')}", 'info')
         
+        services_str = ', '.join(selected_services)
         new_appointment = Appointment(
             user_id=current_user.id,
-            services=services_str,  # Salva a string de serviços
-            date=datetime.strptime(selected_date, '%Y-%m-%d').date(),
-            time=datetime.strptime(selected_time, '%H:%M').time(),
+            services=services_str,
+            date=selected_date,
+            time=selected_time,
             status='aguardando'
         )
-        
         db.session.add(new_appointment)
         db.session.commit()
         
@@ -145,7 +184,9 @@ def schedule():
         return redirect(url_for('cabeleleila_leila.dashboard'))
     
     services = Service.query.all()
-    return render_template('cabeleleila_leila/schedule.html', services=services)
+    return render_template('cabeleleila_leila/schedule.html', 
+                          services=services, 
+                          current_date=current_date)
 
 @cabeleleila_leila_bp.route('/check-schedule', methods=['GET'])
 @login_required
@@ -182,18 +223,18 @@ def history():
     two_days_later = current_date + timedelta(days=2)
     start_date = request.args.get('start_date')
     end_date = request.args.get('end_date')
-    
-    appointments = current_user.appointments.order_by(Appointment.date.desc())
+
+    appointments_query = Appointment.query.filter_by(user_id=current_user.id)
 
     if start_date and end_date:
         start = datetime.strptime(start_date, '%Y-%m-%d').date()
         end = datetime.strptime(end_date, '%Y-%m-%d').date()
-        appointments = appointments.filter(
+        appointments_query = appointments_query.filter(
             Appointment.date >= start,
             Appointment.date <= end
         )
 
-    appointments = appointments.all()
+    appointments = appointments_query.order_by(Appointment.date.desc()).all()
 
     return render_template(
         'cabeleleila_leila/history.html',
@@ -216,29 +257,81 @@ def edit_appointment(id):
         return redirect(url_for('cabeleleila_leila.history'))
     
     if request.method == 'POST':
-        new_date = request.form['date']
-        new_time = request.form['time']
+        new_date_str = request.form['date']
+        new_time_str = request.form['time']
+
+        new_date = datetime.strptime(new_date_str, '%Y-%m-%d').date()
+        new_time = datetime.strptime(new_time_str, '%H:%M').time()
+        new_time_obj = datetime.combine(new_date, new_time).replace(tzinfo=None)
+        now = datetime.now().replace(tzinfo=None)
+        
+        if new_time_obj < now:
+            flash('Horário deve ser no futuro.', 'danger')
+            return redirect(url_for('cabeleleila_leila.edit_appointment', id=id))
+        
+        if new_date < current_date:
+            flash('Data deve ser no futuro.', 'danger')
+            return redirect(url_for('cabeleleila_leila.edit_appointment', id=id))
+        
+        if new_time < time(8, 0) or new_time >= time(20, 0):
+            flash('Horário deve estar entre 08:00 e 20:00.', 'danger')
+            return redirect(url_for('cabeleleila_leila.edit_appointment', id=id))
+        
+        selected_services = request.form.getlist('services')
+        services = Service.query.filter(Service.name.in_(selected_services)).all()
+        total_duration = sum(service.duration for service in services)
+        
+        new_start = datetime.combine(new_date, new_time)
+        new_end = new_start + timedelta(minutes=total_duration)
+        
+        if new_end.time() > time(20, 0):
+            flash('Serviço ultrapassa o horário máximo de 20:00.', 'danger')
+            return redirect(url_for('cabeleleila_leila.edit_appointment', id=id))
+        
+        existing_appointments = Appointment.query.filter(
+            Appointment.date == new_date,
+            Appointment.id != appointment.id
+        ).all()
+        
+        for appt in existing_appointments:
+            existing_services = appt.services.split(', ')
+            existing_services_objects = Service.query.filter(Service.name.in_(existing_services)).all()
+            existing_duration = sum(s.duration for s in existing_services_objects)
+            existing_start = datetime.combine(appt.date, appt.time)
+            existing_end = existing_start + timedelta(minutes=existing_duration)
+            
+            if (new_start < existing_end) and (existing_start < new_end):
+                flash('Horário já está ocupado. Selecione outro horário.', 'danger')
+                return redirect(url_for('cabeleleila_leila.edit_appointment', id=id))
         
         start_week = current_user.appointments.filter(
-            Appointment.date >= datetime.now().date() - timedelta(days=datetime.now().weekday()),
-            Appointment.date < datetime.now().date() + timedelta(days=7 - datetime.now().weekday())
+            Appointment.date >= current_date - timedelta(days=current_date.weekday()),
+            Appointment.date < current_date + timedelta(days=7 - current_date.weekday())
         ).first()
         
         if start_week:
             suggested_date = start_week.date
             flash(f'Sugestão: Agendar na data original: {suggested_date.strftime("%d/%m/%Y")}', 'info')
         
-        appointment.date = datetime.strptime(new_date, '%Y-%m-%d').date()
-        appointment.time = datetime.strptime(new_time, '%H:%M').time()
+        appointment.date = new_date
+        appointment.time = new_time
         appointment.status = 'aguardando'
+        
         db.session.commit()
-        flash('Agendamento atualizado!', 'success')
+        flash('Agendamento atualizado com sucesso!', 'success')
         return redirect(url_for('cabeleleila_leila.history'))
+    
+    current_date_str = current_date.strftime('%Y-%m-%d')
+    appointment_date_str = appointment.date.strftime('%Y-%m-%d')
+    appointment_time_str = appointment.time.strftime('%H:%M')
     
     return render_template(
         'cabeleleila_leila/edit_appointment.html',
         appointment=appointment,
-        min_date=min_date.strftime('%Y-%m-%d')
+        min_date=min_date.strftime('%Y-%m-%d'),
+        current_date=current_date_str,
+        appointment_date=appointment_date_str,
+        appointment_time=appointment_time_str
     )
 
 @cabeleleila_leila_bp.route('/cancel-appointment/<int:id>', methods=['POST'])

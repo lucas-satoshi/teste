@@ -21,12 +21,25 @@
                             </div>
                             <div class="mb-3">
                                 <label for="date" class="form-label">Data</label>
-                                <input type="date" class="form-control" name="date" min="{{ today }}" required>
+                                <input 
+                                    type="date" 
+                                    name="date" 
+                                    class="form-control" 
+                                    min="{{ current_date }}"
+                                    required
+                                >
                             </div>
                             <div id="date-suggestion" class="mt-3"></div>
                             <div class="mb-3">
                                 <label for="time" class="form-label">Horário</label>
-                                <input type="time" class="form-control" name="time" required>
+                                <input 
+                                    type="time" 
+                                    name="time" 
+                                    min="08:00" 
+                                    max="20:00" 
+                                    class="form-control" 
+                                    required
+                                >
                             </div>
                             <button type="submit" class="btn btn-primary">Agendar</button>
                         </form>

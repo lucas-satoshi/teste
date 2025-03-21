@@ -22,7 +22,14 @@
                         </div>
                         <div class="mb-3">
                             <label for="time" class="form-label">Novo Horário</label>
-                            <input type="time" name="time" value="{{ appointment.time.strftime('%H:%M') }}" required>
+                            <input 
+                                type="time" 
+                                name="time" 
+                                min="08:00" 
+                                max="20:00" 
+                                class="form-control" 
+                                required
+                            >
                         </div>
                         <button type="submit" class="btn btn-primary">Salvar Alterações</button>
                     </form>
