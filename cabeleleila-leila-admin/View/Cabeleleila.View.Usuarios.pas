@@ -34,9 +34,14 @@ var
 begin
   FiltroPesquisa := TUtilitarios.LikeFind(edtPesquisar.Text, DBGrid1);
 
-  dmUsuarios.cdsUsuarios.Close;
-  dmUsuarios.cdsUsuarios.CommandText := 'Select * from User where 1 = 1' + FiltroPesquisa;
-  dmUsuarios.cdsUsuarios.Open;
+  dmUsuarios.sqlUsuarios.Close;
+  dmUsuarios.sqlUsuarios.SQL.Clear;
+  dmUsuarios.sqlUsuarios.SQL.Add('Select * from User where 1 = 1' + FiltroPesquisa);
+  dmUsuarios.sqlUsuarios.Open;
+
+//  dmUsuarios.cdsUsuarios.Close;
+//  dmUsuarios.cdsUsuarios.CommandText := 'Select * from User where 1 = 1' + FiltroPesquisa;
+//  dmUsuarios.cdsUsuarios.Open;
   inherited;
 end;
 

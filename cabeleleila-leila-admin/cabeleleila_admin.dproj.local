@@ -2,35 +2,37 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2025/03/21 20:19:34.000.251,=C:\Users\Lucas Satoshi\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2025/03/21 20:21:32.000.837,C:\Users\Lucas Satoshi\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Projetos\teste\cabeleleila-leila-admin\View\login_admin.pas</Transaction>
-    <Transaction>2025/03/21 20:21:32.000.837,C:\Users\Lucas Satoshi\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Projetos\teste\cabeleleila-leila-admin\View\login_admin.dfm</Transaction>
-    <Transaction>2025/03/21 20:21:47.000.917,C:\Users\Lucas Satoshi\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Projetos\teste\cabeleleila-leila-admin\cabeleleila_admin.dproj</Transaction>
-    <Transaction>2025/03/21 20:26:27.000.386,C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Principal.dfm=C:\Projetos\teste\cabeleleila-leila-admin\View\login_admin.dfm</Transaction>
-    <Transaction>2025/03/21 20:26:27.000.386,C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Principal.pas=C:\Projetos\teste\cabeleleila-leila-admin\View\login_admin.pas</Transaction>
+    <Transaction>2025/03/21 20:21:32.000.837,C:\Projetos\teste\cabeleleila-leila-admin\View\login_admin.pas=C:\Users\Lucas Satoshi\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/21 20:21:32.000.837,C:\Projetos\teste\cabeleleila-leila-admin\View\login_admin.dfm=C:\Users\Lucas Satoshi\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025/03/21 20:21:47.000.917,C:\Projetos\teste\cabeleleila-leila-admin\cabeleleila_admin.dproj=C:\Users\Lucas Satoshi\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2025/03/21 20:26:27.000.386,C:\Projetos\teste\cabeleleila-leila-admin\View\login_admin.pas=C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Principal.pas</Transaction>
+    <Transaction>2025/03/21 20:26:27.000.386,C:\Projetos\teste\cabeleleila-leila-admin\View\login_admin.dfm=C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Principal.dfm</Transaction>
     <Transaction>2025/03/21 21:38:03.000.614,=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
-    <Transaction>2025/03/21 21:38:24.000.691,C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Login.pas=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
-    <Transaction>2025/03/21 21:38:24.000.691,C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Login.dfm=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm</Transaction>
+    <Transaction>2025/03/21 21:38:24.000.691,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm=C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Login.dfm</Transaction>
+    <Transaction>2025/03/21 21:38:24.000.691,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas=C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Login.pas</Transaction>
     <Transaction>2025/03/21 21:50:05.000.113,=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
-    <Transaction>2025/03/21 21:50:32.000.014,C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Conexao.dfm=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm</Transaction>
-    <Transaction>2025/03/21 21:50:32.000.014,C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Conexao.pas=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
+    <Transaction>2025/03/21 21:50:32.000.014,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas=C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Conexao.pas</Transaction>
+    <Transaction>2025/03/21 21:50:32.000.014,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm=C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Conexao.dfm</Transaction>
     <Transaction>2025/03/22 17:05:54.000.210,=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
-    <Transaction>2025/03/22 17:06:13.000.496,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas=C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Sistema.pas</Transaction>
-    <Transaction>2025/03/22 17:06:13.000.496,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm=C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Sistema.dfm</Transaction>
+    <Transaction>2025/03/22 17:06:13.000.496,C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Sistema.dfm=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm</Transaction>
+    <Transaction>2025/03/22 17:06:13.000.496,C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Sistema.pas=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
     <Transaction>2025/03/22 17:14:00.000.867,=C:\Projetos\teste\cabeleleila-leila-admin\Unit2.pas</Transaction>
-    <Transaction>2025/03/22 17:18:49.000.726,C:\Projetos\teste\cabeleleila-leila-admin\Unit2.dfm=C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Usuarios.dfm</Transaction>
-    <Transaction>2025/03/22 17:18:49.000.726,C:\Projetos\teste\cabeleleila-leila-admin\Unit2.pas=C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Usuarios.pas</Transaction>
+    <Transaction>2025/03/22 17:18:49.000.726,C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Usuarios.dfm=C:\Projetos\teste\cabeleleila-leila-admin\Unit2.dfm</Transaction>
+    <Transaction>2025/03/22 17:18:49.000.726,C:\Projetos\teste\cabeleleila-leila-admin\Model\Cabeleleila.Model.Usuarios.pas=C:\Projetos\teste\cabeleleila-leila-admin\Unit2.pas</Transaction>
     <Transaction>2025/03/22 17:37:05.000.651,=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
-    <Transaction>2025/03/22 17:37:21.000.413,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas=C:\Projetos\teste\cabeleleila-leila-admin\Controller\Cabeleleila.Controller.Usuario.pas</Transaction>
+    <Transaction>2025/03/22 17:37:21.000.413,C:\Projetos\teste\cabeleleila-leila-admin\Controller\Cabeleleila.Controller.Usuario.pas=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
     <Transaction>2025/03/22 18:29:33.000.350,=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
-    <Transaction>2025/03/22 18:29:45.000.446,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas=C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.TemplatePadrao.pas</Transaction>
-    <Transaction>2025/03/22 18:29:45.000.446,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm=C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.TemplatePadrao.dfm</Transaction>
+    <Transaction>2025/03/22 18:29:45.000.446,C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.TemplatePadrao.pas=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
+    <Transaction>2025/03/22 18:29:45.000.446,C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.TemplatePadrao.dfm=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm</Transaction>
     <Transaction>2025/03/22 18:32:38.000.445,=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
-    <Transaction>2025/03/22 18:32:47.000.389,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm=C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.TemplateCadastro.dfm</Transaction>
-    <Transaction>2025/03/22 18:32:47.000.389,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas=C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.TemplateCadastro.pas</Transaction>
+    <Transaction>2025/03/22 18:32:47.000.389,C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.TemplateCadastro.dfm=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm</Transaction>
+    <Transaction>2025/03/22 18:32:47.000.389,C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.TemplateCadastro.pas=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
     <Transaction>2025/03/22 19:01:57.000.376,=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
-    <Transaction>2025/03/22 19:02:59.000.905,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas=C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Usuarios.pas</Transaction>
-    <Transaction>2025/03/22 19:02:59.000.905,C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm=C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Usuarios.dfm</Transaction>
-  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <Transaction>2025/03/22 19:02:59.000.905,C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Usuarios.pas=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.pas</Transaction>
+    <Transaction>2025/03/22 19:02:59.000.905,C:\Projetos\teste\cabeleleila-leila-admin\View\Cabeleleila.View.Usuarios.dfm=C:\Projetos\teste\cabeleleila-leila-admin\Unit1.dfm</Transaction>
+    <Transaction>2025/03/22 22:27:34.000.280,=C:\Users\lucas\OneDrive\Documents\Projetos\teste\cabeleleila-leila-admin\Utils\Cabeleleila.Utilitarios.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Controller"/>
     <File Path="Controller\Cabeleleila.Controller.Usuario.pas"/>
     <File Path="Model"/>
@@ -40,6 +42,8 @@
     <File Path="Model\Cabeleleila.Model.Sistema.dfm"/>
     <File Path="Model\Cabeleleila.Model.Usuarios.pas"/>
     <File Path="Model\Cabeleleila.Model.Usuarios.dfm"/>
+    <File Path="Utils"/>
+    <File Path="Utils\Cabeleleila.Utilitarios.pas"/>
     <File Path="View"/>
     <File Path="View\Cabeleleila.View.Login.pas"/>
     <File Path="View\Cabeleleila.View.Login.dfm"/>

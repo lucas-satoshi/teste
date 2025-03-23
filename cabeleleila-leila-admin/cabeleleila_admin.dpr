@@ -10,7 +10,8 @@ uses
   Cabeleleila.Controller.Usuario in 'Controller\Cabeleleila.Controller.Usuario.pas',
   Cabeleleila.View.TemplatePadrao in 'View\Cabeleleila.View.TemplatePadrao.pas' {frmTemplatePadrao},
   Cabeleleila.View.TemplateCadastro in 'View\Cabeleleila.View.TemplateCadastro.pas' {frmTemplateCadastro},
-  Cabeleleila.View.Usuarios in 'View\Cabeleleila.View.Usuarios.pas' {frmUsuarios};
+  Cabeleleila.View.Usuarios in 'View\Cabeleleila.View.Usuarios.pas' {frmUsuarios},
+  Cabeleleila.Utilitarios in 'Utils\Cabeleleila.Utilitarios.pas';
 
 {$R *.res}
 

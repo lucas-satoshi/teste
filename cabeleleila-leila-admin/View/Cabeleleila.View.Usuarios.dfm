@@ -23,8 +23,6 @@ inherited frmUsuarios: TfrmUsuarios
     end
     inherited pnlGrid: TPanel
       StyleElements = [seFont, seClient, seBorder]
-      ExplicitLeft = 2
-      ExplicitTop = 52
       inherited DBGrid1: TDBGrid
         DataSource = DataSource1
         Columns = <

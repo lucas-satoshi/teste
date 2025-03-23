@@ -1,10 +1,10 @@
 object dmConexao: TdmConexao
   OnCreate = DataModuleCreate
-  Height = 750
-  Width = 1000
-  PixelsPerInch = 120
+  Height = 600
+  Width = 800
   object SQLConexao: TFDConnection
-    Left = 168
-    Top = 152
+    LoginPrompt = False
+    Left = 134
+    Top = 122
   end
 end
