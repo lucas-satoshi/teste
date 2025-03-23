@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{AAFDA7A5-832B-43AF-82F8-BEBFC708FDD3}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="cabeleleila_admin.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="cabeleleila_admin">
+        <MSBuild Projects="cabeleleila_admin.dproj"/>
+    </Target>
+    <Target Name="cabeleleila_admin:Clean">
+        <MSBuild Projects="cabeleleila_admin.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="cabeleleila_admin:Make">
+        <MSBuild Projects="cabeleleila_admin.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="cabeleleila_admin"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="cabeleleila_admin:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="cabeleleila_admin:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

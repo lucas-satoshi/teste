@@ -1,0 +1,36 @@
+unit Cabeleleila.View.Usuarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.WinXCtrls, Cabeleleila.Model.Usuarios,
+  Cabeleleila.View.TemplatePadrao;
+
+type
+  TfrmUsuarios = class(TfrmTemplatePadrao)
+    DataSource1: TDataSource;
+    procedure btnPesquisarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmUsuarios: TfrmUsuarios;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmUsuarios.btnPesquisarClick(Sender: TObject);
+begin
+  inherited;
+  dmUsuarios.cdsUsuarios.Close;
+  dmUsuarios.cdsUsuarios.CommandText := 'Select * from user';
+  dmUsuarios.cdsUsuarios.Open;
+end;
+
+end.

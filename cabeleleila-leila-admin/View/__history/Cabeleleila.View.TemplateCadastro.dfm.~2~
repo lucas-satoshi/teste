@@ -1,0 +1,57 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 548
+  ClientWidth = 624
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object CardCadastro: TPanel
+    Left = 0
+    Top = 0
+    Width = 624
+    Height = 548
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = 55
+    ExplicitTop = -8
+    ExplicitWidth = 569
+    ExplicitHeight = 556
+    object Panel1: TPanel
+      Left = 0
+      Top = 481
+      Width = 624
+      Height = 67
+      Align = alBottom
+      TabOrder = 0
+      ExplicitTop = 489
+      ExplicitWidth = 569
+      object btnCancelar: TButton
+        Left = 548
+        Top = 1
+        Width = 75
+        Height = 65
+        Align = alRight
+        Caption = 'Cancelar'
+        TabOrder = 0
+        ExplicitLeft = 493
+      end
+      object btnSalvar: TButton
+        Left = 473
+        Top = 1
+        Width = 75
+        Height = 65
+        Align = alRight
+        Caption = 'Salvar'
+        TabOrder = 1
+        ExplicitLeft = 418
+      end
+    end
+  end
+end

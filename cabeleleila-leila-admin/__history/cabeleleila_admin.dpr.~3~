@@ -1,0 +1,18 @@
+program cabeleleila_admin;
+
+uses
+  Vcl.Forms,
+  Cabeleleila.View.Principal in 'View\Cabeleleila.View.Principal.pas' {frmPrincipal},
+  Cabeleleila.View.Login in 'View\Cabeleleila.View.Login.pas' {frmLogin},
+  Cabeleleila.Model.Conexao in 'Model\Cabeleleila.Model.Conexao.pas' {dmConexao: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmLogin, frmLogin);
+  Application.CreateForm(TdmConexao, dmConexao);
+  Application.Run;
+end.

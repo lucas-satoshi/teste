@@ -1,0 +1,14 @@
+program cabeleleila_admin;
+
+uses
+  Vcl.Forms,
+  login_admin in 'View\login_admin.pas' {Form1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

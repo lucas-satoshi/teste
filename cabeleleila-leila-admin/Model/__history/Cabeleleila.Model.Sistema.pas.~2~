@@ -1,0 +1,30 @@
+unit Cabeleleila.Model.Sistema;
+
+interface
+
+uses
+  System.SysUtils, System.Classes;
+
+type
+  TDataModule1 = class(TDataModule)
+  private
+    const ARQUIVOCONFIGURACAO = 'MonolitoFinanceiro.cfg';
+    function GetConfiguracao(Secao, Parametro, valorPadrao : String) : String;
+    procedure SetConfiguracao(Secao, Parametro, Valor : String);
+  public
+    function DataUltimoAcesso : String; overload;
+    procedure DataUltimoAcesso(aValue : TDateTime); overload;
+    function UsuarioUltimoAcesso : String; overload;
+    procedure UsuarioUltimoAcesso(aValue : String); overload;
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.
