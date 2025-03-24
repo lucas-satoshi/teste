@@ -1,0 +1,27 @@
+unit Cabeleleila.View.EscolherCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids;
+
+type
+  TfrmEscolherCliente = class(TForm)
+    DBGrid1: TDBGrid;
+    btnEscolher: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmEscolherCliente: TfrmEscolherCliente;
+
+implementation
+
+{$R *.dfm}
+
+end.

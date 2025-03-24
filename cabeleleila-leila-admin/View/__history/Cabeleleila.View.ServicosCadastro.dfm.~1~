@@ -1,0 +1,14 @@
+inherited frmServicosCadastro: TfrmServicosCadastro
+  Caption = 'Cadastro de Servi'#231'o'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited CardCadastro: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited Panel1: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+      inherited btnSalvar: TButton
+        ExplicitLeft = 1
+      end
+    end
+  end
+end

@@ -14,6 +14,9 @@ uses
 type
   TdmConexao = class(TDataModule)
     SQLConexao: TFDConnection;
+    sqlAgendamentos: TFDQuery;
+    sqlServicos: TFDQuery;
+    sqlRelatorio: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
     const ARQUIVOCONFIGURACAO = 'cabeleleila_admin.cfg';

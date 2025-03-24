@@ -37,13 +37,14 @@ object frmTemplateCadastro: TfrmTemplateCadastro
         OnClick = btnCancelarClick
       end
       object btnSalvar: TButton
-        Left = 473
+        Left = 1
         Top = 1
         Width = 75
         Height = 65
-        Align = alRight
+        Align = alLeft
         Caption = 'Salvar'
         TabOrder = 1
+        ExplicitLeft = 473
       end
     end
   end

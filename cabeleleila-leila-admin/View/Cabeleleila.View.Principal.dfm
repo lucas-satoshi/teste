@@ -11,7 +11,6 @@ object frmPrincipal: TfrmPrincipal
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
-  WindowState = wsMaximized
   OnCreate = FormCreate
   TextHeight = 15
   object StatusBar1: TStatusBar
@@ -26,8 +25,6 @@ object frmPrincipal: TfrmPrincipal
       item
         Width = 300
       end>
-    ExplicitTop = 403
-    ExplicitWidth = 896
   end
   object Panel1: TPanel
     Left = 0
@@ -38,7 +35,6 @@ object frmPrincipal: TfrmPrincipal
     Color = clIndianred
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 896
     object Label1: TLabel
       Left = 1
       Top = 38
@@ -98,7 +94,6 @@ object frmPrincipal: TfrmPrincipal
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
-    ExplicitHeight = 230
     object Image1: TImage
       Left = 1
       Top = 1
@@ -751,7 +746,6 @@ object frmPrincipal: TfrmPrincipal
     Color = clWhite
     ParentBackground = False
     TabOrder = 3
-    ExplicitHeight = 230
     object Image2: TImage
       Left = 1
       Top = 1
@@ -1417,6 +1411,7 @@ object frmPrincipal: TfrmPrincipal
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnClick = btnAppointmentClick
     end
   end
   object Panel4: TPanel
@@ -1428,7 +1423,6 @@ object frmPrincipal: TfrmPrincipal
     Color = clWhite
     ParentBackground = False
     TabOrder = 4
-    ExplicitHeight = 230
     object Image3: TImage
       Left = 1
       Top = 1
@@ -2176,6 +2170,7 @@ object frmPrincipal: TfrmPrincipal
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnClick = btnReportClick
     end
   end
   object Panel5: TPanel
@@ -2187,8 +2182,6 @@ object frmPrincipal: TfrmPrincipal
     Color = clBlack
     ParentBackground = False
     TabOrder = 5
-    ExplicitTop = 359
-    ExplicitWidth = 896
     object Label4: TLabel
       Left = 1
       Top = 1

@@ -1,0 +1,42 @@
+unit Cabeleleila.View.RelatorioSemanal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Cabeleleila.View.TemplatePadrao,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, Cabeleleila.Model.Conexao;
+
+type
+  TfrmRelatorioSemanal = class(TfrmTemplatePadrao)
+    DataSource1: TDataSource;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRelatorioSemanal: TfrmRelatorioSemanal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmRelatorioSemanal.FormShow(Sender: TObject);
+begin
+  inherited;
+  dmConexao.sqlRelatorio.Close;
+  dmConexao.sqlRelatorio.SQL.Clear;
+  dmConexao.sqlRelatorio.SQL.Add('SELECT DATE_TRUNC(''week'', DATE) AS SEMANA, ' +
+                                    'COUNT(ID) AS TOTAL_AGENDAMENTOS, '+
+                                    'SUM(CASE WHEN STATUS = ''aguardando'' THEN 1 ELSE 0 END) AS TOTAL_AGUARDANDO, ' +
+                                    'SUM(CASE WHEN STATUS = ''confirmado'' THEN 1 ELSE 0 END) AS TOTAL_CONFIRMADO, ' +
+                                    'SUM(CASE WHEN STATUS = ''finalizado'' THEN 1 ELSE 0 END) AS TOTAL_FINALIZADO, ' +
+                                    'SUM(CASE WHEN STATUS = ''cancelado'' THEN 1 ELSE 0 END) AS TOTAL_CANCELADO ' +
+                                    'FROM APPOINTMENT GROUP BY DATE_TRUC(''week'', DATE) ORDER BY SEMANA DESC');
+  dmConexao.sqlRelatorio.Open;
+end;
+
+end.

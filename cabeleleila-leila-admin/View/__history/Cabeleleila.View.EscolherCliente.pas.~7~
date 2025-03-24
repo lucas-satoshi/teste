@@ -1,0 +1,37 @@
+unit Cabeleleila.View.EscolherCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, Cabeleleila.Model.Usuarios;
+
+type
+  TfrmEscolherCliente = class(TForm)
+    DBGrid1: TDBGrid;
+    btnEscolher: TButton;
+    DataSource1: TDataSource;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmEscolherCliente: TfrmEscolherCliente;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmEscolherCliente.FormShow(Sender: TObject);
+begin
+  dmUsuarios.sqlUsuarios.Close;
+  dmUsuarios.sqlUsuarios.SQL.Clear;
+  dmUsuarios.sqlUsuarios.SQL.Add('SELECT * FROM USER');
+  dmUsuarios.sqlUsuarios.Open;
+end;
+
+end.

@@ -1,0 +1,41 @@
+inherited frmRelatorioSemanal: TfrmRelatorioSemanal
+  Caption = 'Relat'#243'rio Semanal'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited CardPesquisa: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited pnlPesquisarBotoes: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+      inherited btnIncluir: TButton
+        Enabled = False
+        Visible = False
+      end
+      inherited btnAlterar: TButton
+        Enabled = False
+        Visible = False
+      end
+      inherited btnExcluir: TButton
+        Enabled = False
+        Visible = False
+      end
+    end
+    inherited PnlPesquisa: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+      inherited Label1: TLabel
+        StyleElements = [seFont, seClient, seBorder]
+      end
+      inherited edtPesquisar: TEdit
+        Height = 23
+        StyleElements = [seFont, seClient, seBorder]
+        ExplicitHeight = 23
+      end
+      inherited btnPesquisar: TButton
+        ExplicitLeft = 525
+        ExplicitTop = 0
+      end
+    end
+    inherited pnlGrid: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+  end
+end

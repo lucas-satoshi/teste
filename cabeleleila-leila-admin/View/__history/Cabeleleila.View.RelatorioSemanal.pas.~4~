@@ -1,0 +1,40 @@
+unit Cabeleleila.View.RelatorioSemanal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Cabeleleila.View.TemplatePadrao,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, Cabeleleila.Model.Conexao;
+
+type
+  TfrmRelatorioSemanal = class(TfrmTemplatePadrao)
+    DataSource1: TDataSource;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRelatorioSemanal: TfrmRelatorioSemanal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmRelatorioSemanal.FormShow(Sender: TObject);
+begin
+  inherited;
+  dmConexao.sqlRelatorio.Close;
+  dmConexao.sqlRelatorio.SQL.Clear;
+  dmConexao.sqlRelatorio.SQL.Add('SELECT DATE_TRUNC(''week'', date) AS SEMANA, ' +
+                                    'USER.NAME, APPOINTMENT.SERVICES, APPOINTMENT.DATE, '+
+                                    'APPOINTMENT.TIME, APPOINTMENT.STATUS, APPOINTMENT.CREATED_AT '+
+                                    'FROM APPOINTMENT LEFT JOIN USER ON ' +
+                                    'APPOINTMENT.USER_ID = USER.ID');
+  dmConexao.sqlRelatorio.Open;
+end;
+
+end.

@@ -1,0 +1,69 @@
+unit Cabeleleila.View.Agendamentos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Cabeleleila.View.TemplatePadrao,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, Cabeleleila.Model.Conexao;
+
+type
+  TfrmAgendamentos = class(TfrmTemplatePadrao)
+    DataSource1: TDataSource;
+    btnServicos: TButton;
+    procedure FormShow(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
+  private
+    procedure LoadRecord;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmAgendamentos: TfrmAgendamentos;
+
+implementation
+
+uses
+  Cabeleleila.Utilitarios;
+
+{$R *.dfm}
+
+{ TfrmAgendamentos }
+
+procedure TfrmAgendamentos.btnPesquisarClick(Sender: TObject);
+var
+  FiltroPesquisa : string;
+begin
+  FiltroPesquisa := TUtilitarios.LikeFind(edtPesquisar.Text, DBGrid1);
+
+  dmConexao.sqlAgendamentos.Close;
+  dmConexao.sqlAgendamentos.SQL.Clear;
+  dmConexao.sqlAgendamentos.SQL.Add('SELECT APPOINTMENT.ID, APPOINTMENT.USER_ID, ' +
+                                    'USER.NAME, APPOINTMENT.SERVICES, APPOINTMENT.DATE, '+
+                                    'APPOINTMENT.TIME, APPOINTMENT.STATUS, APPOINTMENT.CREATED_AT '+
+                                    'FROM APPOINTMENT LEFT JOIN USER ON ' +
+                                    'APPOINTMENT.USER_ID = USER.ID WHERE 1 = 1' + FiltroPesquisa);
+  dmConexao.sqlAgendamentos.Open;
+  inherited;
+end;
+
+procedure TfrmAgendamentos.FormShow(Sender: TObject);
+begin
+  inherited;
+  LoadRecord;
+end;
+
+procedure TfrmAgendamentos.LoadRecord;
+begin
+  dmConexao.sqlAgendamentos.Close;
+  dmConexao.sqlAgendamentos.SQL.Clear;
+  dmConexao.sqlAgendamentos.SQL.Add('SELECT APPOINTMENT.ID, APPOINTMENT.USER_ID, ' +
+                                    'USER.NAME, APPOINTMENT.SERVICES, APPOINTMENT.DATE, '+
+                                    'APPOINTMENT.TIME, APPOINTMENT.STATUS, APPOINTMENT.CREATED_AT '+
+                                    'FROM APPOINTMENT LEFT JOIN USER ON ' +
+                                    'APPOINTMENT.USER_ID = USER.ID');
+  dmConexao.sqlAgendamentos.Open;
+end;
+
+end.

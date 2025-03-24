@@ -1,47 +1,11 @@
 object dmUsuarios: TdmUsuarios
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Height = 750
-  Width = 1000
-  PixelsPerInch = 120
+  Height = 600
+  Width = 800
   object sqlUsuarios: TFDQuery
     Connection = dmConexao.SQLConexao
-    Left = 16
-    Top = 16
-  end
-  object dspUsuarios: TDataSetProvider
-    DataSet = sqlUsuarios
-    Options = [poAllowCommandText, poUseQuoteChar]
-    Left = 96
-    Top = 16
-  end
-  object cdsUsuarios: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'dspUsuarios'
-    Left = 184
-    Top = 16
-    object cdsUsuariosid: TIntegerField
-      FieldName = 'id'
-    end
-    object cdsUsuariosname: TStringField
-      FieldName = 'name'
-      Size = 100
-    end
-    object cdsUsuariosusername: TStringField
-      FieldName = 'username'
-      Size = 64
-    end
-    object cdsUsuariosemail: TStringField
-      FieldName = 'email'
-      Size = 120
-    end
-    object cdsUsuariosphone: TStringField
-      FieldName = 'phone'
-    end
-    object cdsUsuariospassword: TStringField
-      FieldName = 'password'
-      Size = 128
-    end
+    Left = 237
+    Top = 221
   end
 end

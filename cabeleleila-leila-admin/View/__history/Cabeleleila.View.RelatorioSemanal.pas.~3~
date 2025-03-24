@@ -1,0 +1,26 @@
+unit Cabeleleila.View.RelatorioSemanal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Cabeleleila.View.TemplatePadrao,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, Cabeleleila.Model.Conexao;
+
+type
+  TfrmRelatorioSemanal = class(TfrmTemplatePadrao)
+    DataSource1: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRelatorioSemanal: TfrmRelatorioSemanal;
+
+implementation
+
+{$R *.dfm}
+
+end.

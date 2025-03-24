@@ -22,6 +22,7 @@ type
     pnlGrid: TPanel;
     DBGrid1: TDBGrid;
     procedure btnFecharClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,6 +39,23 @@ implementation
 procedure TfrmTemplatePadrao.btnFecharClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TfrmTemplatePadrao.FormCreate(Sender: TObject);
+const
+  FONT_SIZE = 10;
+begin
+  DBGrid1.Font.Size := FONT_SIZE;
+  DBGrid1.Font.Name := 'Roboto';
+  DBGrid1.Font.Color := $004B4B4B;
+
+  DBGrid1.TitleFont.Name := 'Roboto';
+  DBGrid1.TitleFont.Size := (FONT_SIZE  + 1);
+
+  DBGrid1.Options := [dgTitles, dgIndicator, dgColumnResize,
+              dgConfirmDelete, dgCancelOnExit, dgTitleClick];
+
+  DBGrid1.DrawingStyle := gdsThemed;
 end;
 
 end.

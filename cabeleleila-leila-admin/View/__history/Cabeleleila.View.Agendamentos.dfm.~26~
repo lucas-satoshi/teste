@@ -1,0 +1,101 @@
+inherited frmAgendamentos: TfrmAgendamentos
+  Caption = 'Gest'#227'o de Agendamentos'
+  StyleElements = [seFont, seClient, seBorder]
+  OnShow = FormShow
+  TextHeight = 15
+  inherited CardPesquisa: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited pnlPesquisarBotoes: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+      inherited btnIncluir: TButton
+        OnClick = btnIncluirClick
+      end
+      inherited btnAlterar: TButton
+        OnClick = btnAlterarClick
+      end
+      inherited btnExcluir: TButton
+        OnClick = btnExcluirClick
+      end
+    end
+    inherited PnlPesquisa: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+      inherited Label1: TLabel
+        StyleElements = [seFont, seClient, seBorder]
+      end
+      inherited edtPesquisar: TEdit
+        Height = 23
+        StyleElements = [seFont, seClient, seBorder]
+        ExplicitHeight = 23
+      end
+      inherited btnPesquisar: TButton
+        Left = 410
+        OnClick = btnPesquisarClick
+        ExplicitLeft = 410
+        ExplicitTop = 0
+      end
+      object btnServicos: TButton
+        Left = 507
+        Top = 0
+        Width = 115
+        Height = 56
+        Align = alRight
+        Caption = 'Editar Servi'#231'os'
+        TabOrder = 2
+      end
+    end
+    inherited pnlGrid: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+      inherited DBGrid1: TDBGrid
+        DataSource = DataSource1
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'name'
+            Title.Caption = 'Cliente'
+            Width = 200
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'services'
+            Title.Caption = 'Servi'#231'os'
+            Width = 300
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'date'
+            Title.Caption = 'Data'
+            Width = 100
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'time'
+            Title.Caption = 'Hor'#225'rio'
+            Width = 100
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'status'
+            Title.Caption = 'Status'
+            Width = 100
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'created_at'
+            Title.Caption = 'Data de cadastro'
+            Width = 200
+            Visible = True
+          end>
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = dmConexao.sqlAgendamentos
+    Left = 521
+    Top = 417
+  end
+end

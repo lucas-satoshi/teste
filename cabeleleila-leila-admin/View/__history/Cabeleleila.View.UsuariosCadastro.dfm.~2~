@@ -1,0 +1,12 @@
+inherited frmUsuariosCadastro: TfrmUsuariosCadastro
+  Caption = 'Cadastro de Usu'#225'rio'
+  Position = poScreenCenter
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited CardCadastro: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited Panel1: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+  end
+end

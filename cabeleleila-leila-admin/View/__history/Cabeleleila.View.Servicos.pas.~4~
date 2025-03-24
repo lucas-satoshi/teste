@@ -1,0 +1,41 @@
+unit Cabeleleila.View.Servicos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Cabeleleila.View.TemplatePadrao,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, Cabeleleila.Model.Conexao;
+
+type
+  TfrmServicos = class(TfrmTemplatePadrao)
+    DataSource1: TDataSource;
+    procedure FormShow(Sender: TObject);
+  private
+    procedure LoadRecord;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmServicos: TfrmServicos;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmServicos.FormShow(Sender: TObject);
+begin
+  inherited;
+  LoadRecord;
+end;
+
+procedure TfrmServicos.LoadRecord;
+begin
+  dmConexao.sqlServicos.Close;
+  dmConexao.sqlServicos.SQL.Clear;
+  dmConexao.sqlServicos.SQL.Add('SELECT * FROM USER');
+  dmConexao.sqlServicos.Open;
+end;
+
+end.

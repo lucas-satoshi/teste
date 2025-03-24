@@ -34,6 +34,8 @@ type
     procedure Timer1Timer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnUserClick(Sender: TObject);
+    procedure btnAppointmentClick(Sender: TObject);
+    procedure btnReportClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,9 +49,20 @@ implementation
 
 uses
   Cabeleleila.View.Login, Cabeleleila.Model.Usuarios,
-  Cabeleleila.View.Usuarios;
+  Cabeleleila.View.Usuarios, Cabeleleila.View.Agendamentos,
+  Cabeleleila.View.RelatorioSemanal;
 
 {$R *.dfm}
+
+procedure TfrmPrincipal.btnAppointmentClick(Sender: TObject);
+begin
+  frmAgendamentos.Show;
+end;
+
+procedure TfrmPrincipal.btnReportClick(Sender: TObject);
+begin
+  frmRelatorioSemanal.Show;
+end;
 
 procedure TfrmPrincipal.btnUserClick(Sender: TObject);
 begin

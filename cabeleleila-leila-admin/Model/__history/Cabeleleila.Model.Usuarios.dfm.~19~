@@ -1,0 +1,12 @@
+object dmUsuarios: TdmUsuarios
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  Height = 750
+  Width = 1000
+  PixelsPerInch = 120
+  object sqlUsuarios: TFDQuery
+    Connection = dmConexao.SQLConexao
+    Left = 16
+    Top = 16
+  end
+end

@@ -1,0 +1,11 @@
+inherited frmTemplateCadastro1: TfrmTemplateCadastro1
+  Caption = 'frmTemplateCadastro1'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited CardCadastro: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited Panel1: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+  end
+end

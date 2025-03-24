@@ -1,0 +1,96 @@
+inherited frmUsuariosCadastro: TfrmUsuariosCadastro
+  Caption = 'Cadastro de Usu'#225'rio'
+  ClientHeight = 305
+  ClientWidth = 287
+  Position = poScreenCenter
+  StyleElements = [seFont, seClient, seBorder]
+  ExplicitWidth = 303
+  ExplicitHeight = 344
+  TextHeight = 15
+  inherited CardCadastro: TPanel
+    Width = 287
+    Height = 305
+    StyleElements = [seFont, seClient, seBorder]
+    object Label2: TLabel [0]
+      Left = 15
+      Top = 20
+      Width = 33
+      Height = 15
+      Caption = 'Nome'
+    end
+    object Label3: TLabel [1]
+      Left = 15
+      Top = 50
+      Width = 40
+      Height = 15
+      Caption = 'Usu'#225'rio'
+    end
+    object Label4: TLabel [2]
+      Left = 15
+      Top = 77
+      Width = 34
+      Height = 15
+      Caption = 'E-mail'
+    end
+    object Label1: TLabel [3]
+      Left = 15
+      Top = 104
+      Width = 45
+      Height = 15
+      Caption = 'Telefone'
+    end
+    object Label5: TLabel [4]
+      Left = 15
+      Top = 131
+      Width = 32
+      Height = 15
+      Caption = 'Senha'
+    end
+    inherited Panel1: TPanel
+      Top = 238
+      Width = 287
+      StyleElements = [seFont, seClient, seBorder]
+      inherited btnCancelar: TButton
+        Left = 211
+      end
+      inherited btnSalvar: TButton
+        OnClick = btnSalvarClick
+      end
+    end
+    object edtNome: TEdit
+      Left = 64
+      Top = 20
+      Width = 209
+      Height = 21
+      TabOrder = 1
+    end
+    object edtLogin: TEdit
+      Left = 64
+      Top = 47
+      Width = 209
+      Height = 21
+      TabOrder = 2
+    end
+    object edtEmail: TEdit
+      Left = 64
+      Top = 74
+      Width = 209
+      Height = 21
+      TabOrder = 3
+    end
+    object edtPhone: TEdit
+      Left = 64
+      Top = 101
+      Width = 209
+      Height = 21
+      TabOrder = 4
+    end
+    object edtPassword: TEdit
+      Left = 64
+      Top = 128
+      Width = 209
+      Height = 23
+      TabOrder = 5
+    end
+  end
+end

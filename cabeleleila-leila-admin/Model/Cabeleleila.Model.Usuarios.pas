@@ -12,14 +12,6 @@ uses
 type
   TdmUsuarios = class(TDataModule)
     sqlUsuarios: TFDQuery;
-    dspUsuarios: TDataSetProvider;
-    cdsUsuarios: TClientDataSet;
-    cdsUsuariosid: TIntegerField;
-    cdsUsuariosname: TStringField;
-    cdsUsuariosusername: TStringField;
-    cdsUsuariosemail: TStringField;
-    cdsUsuariosphone: TStringField;
-    cdsUsuariospassword: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
   private
